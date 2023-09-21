@@ -32,43 +32,39 @@ function playRoshambo(playerChoice, getComputerChoice) {
 function Game() {
   let playerScore = 0;
   let computerScore = 0;
-  let round = 0;
-  while (round < 5) {
-    let playerChoice = prompt("Make your choice!");
 
-    let result = playRoshambo(playerChoice, getComputerChoice);
-    if (
-      (result === "You Win! Rock beats Scissors") |
-      (result === "You Win! Paper beats Rock") |
-      (result === "You Win! Scissors beats Paper")
-    ) {
-      playerScore++;
-      round++;
-      console.log(
-        `${result}! Player: ${playerScore}, CPU: ${+computerScore}, Round: ${round}`
-      );
-    } else if (
-      (result === "You Lose! Paper beats Rock") |
-      (result === "You Lose! Scissors beats Paper") |
-      (result === "You Lose! Rock beats Scissors")
-    ) {
-      computerScore++;
-      round++;
-      console.log(
-        `${result}! Player: ${playerScore}, CPU: ${+computerScore}, Round: ${round}`
-      );
-    } else if (result === "Draw!") {
-      console.log("Draw!");
-    }
+  let playerChoice = prompt("Make your choice!");
+
+  let result = playRoshambo(playerChoice, getComputerChoice);
+
+  if (
+    (result === "You Win! Rock beats Scissors") |
+    (result === "You Win! Paper beats Rock") |
+    (result === "You Win! Scissors beats Paper")
+  ) {
+    playerScore++;
+    round++;
+    console.log(`${result}! Player: ${playerScore}, CPU: ${+computerScore}`);
+  } else if (
+    (result === "You Lose! Paper beats Rock") |
+    (result === "You Lose! Scissors beats Paper") |
+    (result === "You Lose! Rock beats Scissors")
+  ) {
+    computerScore++;
+    round++;
+    console.log(`${result}! Player: ${playerScore}, CPU: ${+computerScore}`);
+  } else if (result === "Draw!") {
+    console.log("Draw!");
   }
-  if (round === 5) {
-    let winner = Math.max(playerScore, computerScore);
-    if (winner === playerScore) {
-      return "You win! The score is " + playerScore + " to " + computerScore;
-    } else if (winner === computerScore) {
-      return "You lose! The score is " + computerScore + " to " + playerScore;
-    }
+
+  //if (round === 5) {
+  let winner = Math.max(playerScore, computerScore);
+  if (winner === playerScore) {
+    return "You win! The score is " + playerScore + " to " + computerScore;
+  } else if (winner === computerScore) {
+    return "You lose! The score is " + computerScore + " to " + playerScore;
   }
 }
+// };
 
 console.log(Game());
