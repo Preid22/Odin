@@ -1,85 +1,78 @@
-function getComputerChoice() {
-  const choices = ["Rock", "Paper", "Scissors"];
-  const randomChoice = Math.floor(Math.random() * 3);
-  return choices[randomChoice];
-}
+// true: player won, false: CPU won
 
-function playRoshambo(playerChoice, getComputerChoice) {
-  const computerChoice = getComputerChoice();
-  if (playerChoice === computerChoice) {
-    return "Draw!";
-  } else if (playerChoice === "Rock") {
-    if (computerChoice === "Paper") {
-      return "You Lose! Paper beats Rock";
-    } else if (computerChoice === "Scissors") {
-      return "You Win! Rock beats Scissors";
-    }
-  } else if (playerChoice === "Paper") {
-    if (computerChoice === "Rock") {
-      return "You Win! Paper beats Rock";
-    } else if (computerChoice === "Scissors") {
-      return "You Lose! Scissors beats Paper";
-    }
-  } else if (playerChoice === "Scissors") {
-    if (computerChoice === "Rock") {
-      return "You Lose! Rock beats Scissors";
-    } else if (computerChoice === "Paper") {
-      return "You Win! Scissors beats Paper";
+function Game(playerChoice, cpuChoice) {
+  function playRoshambo(p, c) {
+    if (p === c) {
+      console.log(p, c);
+      return "Draw!";
+    } else if (p === "Rock") {
+      if (c === "Paper") {
+        console.log(p, c);
+        return false;
+      } else if (c === "Scissors") {
+        console.log(p, c);
+        return true;
+      }
+    } else if (p === "Paper") {
+      if (c === "Rock") {
+        console.log(p, c);
+        return true;
+      } else if (c === "Scissors") {
+        console.log(p, c);
+        return false;
+      }
+    } else if (p === "Scissors") {
+      if (c === "Rock") {
+        console.log(p, c);
+        return false;
+      } else if (c === "Paper") {
+        console.log(p, c);
+        return true;
+      }
     }
   }
-}
 
-function Game(playerChoice) {
-  
-  let result = playRoshambo(playerChoice, getComputerChoice);
+  let result = playRoshambo(playerChoice, cpuChoice);
 
-  if (
-    (result === "You Win! Rock beats Scissors") |
-    (result === "You Win! Paper beats Rock") |
-    (result === "You Win! Scissors beats Paper")
-  ) {
+  if (result === true) {
     playerScore++;
     displayPlayerScore.textContent = `Player score: ${playerScore}`;
-    console.log(`${result}! Player: ${playerScore}, CPU: ${+computerScore}`);
-  } else if (
-    (result === "You Lose! Paper beats Rock") |
-    (result === "You Lose! Scissors beats Paper") |
-    (result === "You Lose! Rock beats Scissors")
-  ) {
+    winnerBox.textContent = `You Win! Player chose ${playerChoice}, CPU chose ${cpuChoice}`;
+  } else if (result === false) {
     computerScore++;
     displayComputerScore.textContent = `Player score: ${computerScore}`;
-    console.log(`${result}! Player: ${playerScore}, CPU: ${+computerScore}`);
+    winnerBox.textContent = `You Lose! Player chose ${playerChoice}, CPU chose ${cpuChoice}`;
   } else if (result === "Draw!") {
-    console.log("Draw!");
+    winnerBox.textContent = "Draw!";
   }
-
-  //return playerScore, computerScore;
-  //if (round === 5) {
-  // let winner = Math.max(playerScore, computerScore);
-  // if (winner === playerScore) {
-  //   return "You win! The score is " + playerScore + " to " + computerScore;
-  // } else if (winner === computerScore) {
-  //   return "You lose! The score is " + computerScore + " to " + playerScore;
-  // }
 }
 
 let playerScore = 0;
 let computerScore = 0;
 
+let computerChoice = function getComputerChoice() {
+  const choices = ["Rock", "Paper", "Scissors"];
+  const randomChoice = Math.floor(Math.random() * 3);
+  console.log(randomChoice);
+  return choices[randomChoice];
+};
+
 const rockButton = document.querySelector(".rock");
 rockButton.addEventListener("click", () => {
-  Game("Rock", getComputerChoice);
+  Game("Rock", computerChoice());
 });
 
 const paperButton = document.querySelector(".paper");
 paperButton.addEventListener("click", () => {
-  Game("Paper", getComputerChoice);
+  Game("Paper", computerChoice());
 });
 
 const scissorsButton = document.querySelector(".scissors");
 scissorsButton.addEventListener("click", () => {
-  Game("Scissors", getComputerChoice);
+  Game("Scissors", computerChoice());
 });
+
+const winnerBox = document.querySelector(".winnerBox");
 
 const displayPlayerScore = document.querySelector(".playerScore");
 const displayComputerScore = document.querySelector(".cpuScore");
