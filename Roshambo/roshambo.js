@@ -38,8 +38,11 @@ function Game(playerChoice, cpuChoice) {
   } else if (result === "Draw!") {
     winnerBox.textContent = "Draw!";
   }
+  round += 1;
+  displayRound.textContent = `Round: ${round}`;
 }
 
+let round = 1;
 let playerScore = 0;
 let computerScore = 0;
 
@@ -69,3 +72,4 @@ const winnerBox = document.querySelector(".winnerBox");
 
 const displayPlayerScore = document.querySelector(".playerScore");
 const displayComputerScore = document.querySelector(".cpuScore");
+const displayRound = document.querySelector(".round");
