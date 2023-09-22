@@ -30,8 +30,7 @@ function playRoshambo(playerChoice, getComputerChoice) {
 }
 
 function Game(playerChoice) {
-  //let playerChoice = prompt("Make your choice!");
-
+  
   let result = playRoshambo(playerChoice, getComputerChoice);
 
   if (
@@ -40,6 +39,7 @@ function Game(playerChoice) {
     (result === "You Win! Scissors beats Paper")
   ) {
     playerScore++;
+    displayPlayerScore.textContent = `Player score: ${playerScore}`;
     console.log(`${result}! Player: ${playerScore}, CPU: ${+computerScore}`);
   } else if (
     (result === "You Lose! Paper beats Rock") |
@@ -47,11 +47,13 @@ function Game(playerChoice) {
     (result === "You Lose! Rock beats Scissors")
   ) {
     computerScore++;
+    displayComputerScore.textContent = `Player score: ${computerScore}`;
     console.log(`${result}! Player: ${playerScore}, CPU: ${+computerScore}`);
   } else if (result === "Draw!") {
     console.log("Draw!");
   }
-  return [playerScore, computerScore];
+
+  //return playerScore, computerScore;
   //if (round === 5) {
   // let winner = Math.max(playerScore, computerScore);
   // if (winner === playerScore) {
@@ -60,20 +62,24 @@ function Game(playerChoice) {
   //   return "You lose! The score is " + computerScore + " to " + playerScore;
   // }
 }
-// };
 
 let playerScore = 0;
 let computerScore = 0;
 
 const rockButton = document.querySelector(".rock");
 rockButton.addEventListener("click", () => {
-  console.log(Game("Rock", getComputerChoice));
+  Game("Rock", getComputerChoice);
 });
 
 const paperButton = document.querySelector(".paper");
-paperButton.onclick = () =>
-  console.log(playRoshambo("Paper", getComputerChoice));
+paperButton.addEventListener("click", () => {
+  Game("Paper", getComputerChoice);
+});
 
 const scissorsButton = document.querySelector(".scissors");
-scissorsButton.onclick = () =>
-  console.log(playRoshambo("Scissors", getComputerChoice));
+scissorsButton.addEventListener("click", () => {
+  Game("Scissors", getComputerChoice);
+});
+
+const displayPlayerScore = document.querySelector(".playerScore");
+const displayComputerScore = document.querySelector(".cpuScore");
