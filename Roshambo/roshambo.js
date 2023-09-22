@@ -44,8 +44,7 @@ function playRoshambo(playerChoice, getComputerChoice) {
 }
 
 function Game(playerChoice) {
-  let playerScore = 0;
-  let computerScore = 0;
+ 
 
   //let playerChoice = prompt("Make your choice!");
 
@@ -68,16 +67,19 @@ function Game(playerChoice) {
   } else if (result === "Draw!") {
     console.log("Draw!");
   }
-
+  return [playerScore, computerScore]
   //if (round === 5) {
-  let winner = Math.max(playerScore, computerScore);
-  if (winner === playerScore) {
-    return "You win! The score is " + playerScore + " to " + computerScore;
-  } else if (winner === computerScore) {
-    return "You lose! The score is " + computerScore + " to " + playerScore;
-  }
-}
+  // let winner = Math.max(playerScore, computerScore);
+  // if (winner === playerScore) {
+  //   return "You win! The score is " + playerScore + " to " + computerScore;
+  // } else if (winner === computerScore) {
+  //   return "You lose! The score is " + computerScore + " to " + playerScore;
+  // }
+};
 // };
+
+let playerScore = 0;
+let computerScore = 0;
 
 const rockButton = document.querySelector(".rock");
 rockButton.addEventListener('click', () => {
