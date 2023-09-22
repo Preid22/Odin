@@ -4,6 +4,20 @@ function getComputerChoice() {
   return choices[randomChoice];
 }
 
+function playRock(playerChoice, getComputerChoice) {
+  const computerChoice = getComputerChoice();
+  console.log(playerChoice)
+  if (playerChoice === computerChoice) {
+    return "Draw!";
+  } else if (playerChoice === "Rock") {
+    if (computerChoice === "Paper") {
+      return "You Lose! Paper beats Rock";
+    } else if (computerChoice === "Scissors") {
+      return "You Win! Rock beats Scissors";
+    }
+  }
+}
+
 function playRoshambo(playerChoice, getComputerChoice) {
   const computerChoice = getComputerChoice();
   if (playerChoice === computerChoice) {
@@ -29,11 +43,11 @@ function playRoshambo(playerChoice, getComputerChoice) {
   }
 }
 
-function Game() {
+function Game(playerChoice) {
   let playerScore = 0;
   let computerScore = 0;
 
-  let playerChoice = prompt("Make your choice!");
+  //let playerChoice = prompt("Make your choice!");
 
   let result = playRoshambo(playerChoice, getComputerChoice);
 
@@ -43,7 +57,6 @@ function Game() {
     (result === "You Win! Scissors beats Paper")
   ) {
     playerScore++;
-    round++;
     console.log(`${result}! Player: ${playerScore}, CPU: ${+computerScore}`);
   } else if (
     (result === "You Lose! Paper beats Rock") |
@@ -51,7 +64,6 @@ function Game() {
     (result === "You Lose! Rock beats Scissors")
   ) {
     computerScore++;
-    round++;
     console.log(`${result}! Player: ${playerScore}, CPU: ${+computerScore}`);
   } else if (result === "Draw!") {
     console.log("Draw!");
@@ -67,4 +79,15 @@ function Game() {
 }
 // };
 
-console.log(Game());
+const rockButton = document.querySelector(".rock");
+rockButton.addEventListener('click', () => {
+  console.log(Game("Rock", getComputerChoice))
+});
+
+const paperButton = document.querySelector(".paper");
+paperButton.onclick = () => console.log(playRoshambo("Paper", getComputerChoice));
+
+const scissorsButton = document.querySelector(".scissors");
+scissorsButton.onclick = () => console.log(playRoshambo("Scissors", getComputerChoice));
+
+
