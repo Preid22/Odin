@@ -4,20 +4,6 @@ function getComputerChoice() {
   return choices[randomChoice];
 }
 
-function playRock(playerChoice, getComputerChoice) {
-  const computerChoice = getComputerChoice();
-  console.log(playerChoice)
-  if (playerChoice === computerChoice) {
-    return "Draw!";
-  } else if (playerChoice === "Rock") {
-    if (computerChoice === "Paper") {
-      return "You Lose! Paper beats Rock";
-    } else if (computerChoice === "Scissors") {
-      return "You Win! Rock beats Scissors";
-    }
-  }
-}
-
 function playRoshambo(playerChoice, getComputerChoice) {
   const computerChoice = getComputerChoice();
   if (playerChoice === computerChoice) {
@@ -44,8 +30,6 @@ function playRoshambo(playerChoice, getComputerChoice) {
 }
 
 function Game(playerChoice) {
- 
-
   //let playerChoice = prompt("Make your choice!");
 
   let result = playRoshambo(playerChoice, getComputerChoice);
@@ -67,7 +51,7 @@ function Game(playerChoice) {
   } else if (result === "Draw!") {
     console.log("Draw!");
   }
-  return [playerScore, computerScore]
+  return [playerScore, computerScore];
   //if (round === 5) {
   // let winner = Math.max(playerScore, computerScore);
   // if (winner === playerScore) {
@@ -75,21 +59,21 @@ function Game(playerChoice) {
   // } else if (winner === computerScore) {
   //   return "You lose! The score is " + computerScore + " to " + playerScore;
   // }
-};
+}
 // };
 
 let playerScore = 0;
 let computerScore = 0;
 
 const rockButton = document.querySelector(".rock");
-rockButton.addEventListener('click', () => {
-  console.log(Game("Rock", getComputerChoice))
+rockButton.addEventListener("click", () => {
+  console.log(Game("Rock", getComputerChoice));
 });
 
 const paperButton = document.querySelector(".paper");
-paperButton.onclick = () => console.log(playRoshambo("Paper", getComputerChoice));
+paperButton.onclick = () =>
+  console.log(playRoshambo("Paper", getComputerChoice));
 
 const scissorsButton = document.querySelector(".scissors");
-scissorsButton.onclick = () => console.log(playRoshambo("Scissors", getComputerChoice));
-
-
+scissorsButton.onclick = () =>
+  console.log(playRoshambo("Scissors", getComputerChoice));
