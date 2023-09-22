@@ -40,7 +40,7 @@ function Game(playerChoice, cpuChoice) {
     winnerBox.textContent = `You Win! Player chose ${playerChoice}, CPU chose ${cpuChoice}`;
   } else if (result === false) {
     computerScore++;
-    displayComputerScore.textContent = `Player score: ${computerScore}`;
+    displayComputerScore.textContent = `CPU score: ${computerScore}`;
     winnerBox.textContent = `You Lose! Player chose ${playerChoice}, CPU chose ${cpuChoice}`;
   } else if (result === "Draw!") {
     winnerBox.textContent = "Draw!";
