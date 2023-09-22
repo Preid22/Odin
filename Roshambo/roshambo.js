@@ -3,30 +3,23 @@
 function Game(playerChoice, cpuChoice) {
   function playRoshambo(p, c) {
     if (p === c) {
-      console.log(p, c);
       return "Draw!";
     } else if (p === "Rock") {
       if (c === "Paper") {
-        console.log(p, c);
         return false;
       } else if (c === "Scissors") {
-        console.log(p, c);
         return true;
       }
     } else if (p === "Paper") {
       if (c === "Rock") {
-        console.log(p, c);
         return true;
       } else if (c === "Scissors") {
-        console.log(p, c);
         return false;
       }
     } else if (p === "Scissors") {
       if (c === "Rock") {
-        console.log(p, c);
         return false;
       } else if (c === "Paper") {
-        console.log(p, c);
         return true;
       }
     }
