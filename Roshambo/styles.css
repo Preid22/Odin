@@ -12,8 +12,8 @@
 }
 
 .container p {
-    font-family: Chalkduster;
-    margin-top: 8%;
+  font-family: Chalkduster;
+  margin-top: 8%;
 }
 
 .buttonBox {
@@ -45,13 +45,11 @@ button:focus {
 }
 
 .winnerBox {
-    border: 1px solid black;
-    height: 100px;
-    font-family: Chalkduster;
+  height: 100px;
+  font-family: Chalkduster;
 }
 
 .scoreBox {
-  border: 1px solid black;
   display: flex;
   flex-direction: column;
   align-items: center;

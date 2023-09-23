@@ -27,6 +27,8 @@ function Game(playerChoice, cpuChoice) {
 
   let result = playRoshambo(playerChoice, cpuChoice);
 
+
+
   if (result === true) {
     playerScore++;
     displayPlayerScore.textContent = `Player: ${playerScore}`;
@@ -40,6 +42,23 @@ function Game(playerChoice, cpuChoice) {
   }
   round += 1;
   displayRound.textContent = `Round: ${round}`;
+
+  if (round === 10 && playerScore > computerScore) {
+    winnerBox.textContent = "Game Over! You Won!";
+    playerScore = 0;
+    computerScore = 0;
+    round = 1;
+  } else if (round === 10 && computerScore > playerScore) {
+    winnerBox.textContent = "Game Over! You Lost!";
+    playerScore = 0;
+    computerScore = 0;
+    round = 1;
+  } else if (round === 10 && computerScore === playerScore) {
+    winnerBox.textContent = "Game Over! Tie Game!";
+    playerScore = 0;
+    computerScore = 0;
+    round = 1;
+  };
 }
 
 let round = 1;
