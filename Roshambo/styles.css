@@ -16,6 +16,19 @@
   margin-top: 8%;
 }
 
+button {
+  background-color: white;
+  height: 40px;
+  width: 100px;
+  border: 3px solid black;
+  border-radius: 7px;
+  font-family: Chalkduster;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
 .buttonBox {
   display: flex;
   flex-direction: row;
@@ -25,27 +38,25 @@
   margin-bottom: 5%;
 }
 
-.buttonBox button {
-  background-color: white;
-  height: 40px;
-  width: 100px;
-  border: 3px solid black;
-  border-radius: 7px;
-  font-family: Chalkduster;
-}
-
-.buttonBox button:hover {
-  cursor: pointer;
-}
-
-button:focus {
+.buttonBox > button:focus {
   text-decoration: underline;
   font-size: 1rem;
   font-weight: bold;
 }
 
+.newGame {
+  margin-bottom: 20px;
+  margin-top: 50px;
+}
+
+.newGame:active {
+  background-color: black;
+  color: white;
+}
+
 .winnerBox {
-  height: 100px;
+  border: 1px solid black;
+  height: 50px;
   font-family: Chalkduster;
 }
 
@@ -56,8 +67,10 @@ button:focus {
   height: 50px;
   width: 120px;
   font-family: Chalkduster;
+  margin-top: 40px;
 }
 
-.playerScore {
+.playerScore,
+.cpuScore {
   margin-bottom: 10px;
 }

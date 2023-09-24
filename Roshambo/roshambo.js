@@ -65,6 +65,15 @@ let round = 1;
 let playerScore = 0;
 let computerScore = 0;
 
+let newGame = function startNewGame() {
+  round = 1;
+  playerScore = 0;
+  computerScore = 0;
+  displayPlayerScore.textContent = `Player: ${playerScore}`;
+  displayComputerScore.textContent = `Computer: ${computerScore}`;
+  displayRound.textContent = `Round: ${round}`
+}
+
 let computerChoice = function getComputerChoice() {
   const choices = ["Rock", "Paper", "Scissors"];
   const randomChoice = Math.floor(Math.random() * 3);
@@ -85,6 +94,11 @@ paperButton.addEventListener("click", () => {
 const scissorsButton = document.querySelector(".scissors");
 scissorsButton.addEventListener("click", () => {
   Game("Scissors", computerChoice());
+});
+
+const newGameButton = document.querySelector(".newGame");
+newGameButton.addEventListener("click", () => {
+  newGame()
 });
 
 const winnerBox = document.querySelector(".winnerBox");
