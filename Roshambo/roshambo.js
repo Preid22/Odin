@@ -27,8 +27,6 @@ function Game(playerChoice, cpuChoice) {
 
   let result = playRoshambo(playerChoice, cpuChoice);
 
-
-
   if (result === true) {
     playerScore++;
     displayPlayerScore.textContent = `Player: ${playerScore}`;
@@ -58,7 +56,7 @@ function Game(playerChoice, cpuChoice) {
     playerScore = 0;
     computerScore = 0;
     round = 1;
-  };
+  }
 }
 
 let round = 1;
@@ -71,8 +69,9 @@ let newGame = function startNewGame() {
   computerScore = 0;
   displayPlayerScore.textContent = `Player: ${playerScore}`;
   displayComputerScore.textContent = `Computer: ${computerScore}`;
-  displayRound.textContent = `Round: ${round}`
-}
+  displayRound.textContent = `Round: ${round}`;
+  winnerBox.textContent = "";
+};
 
 let computerChoice = function getComputerChoice() {
   const choices = ["Rock", "Paper", "Scissors"];
@@ -98,7 +97,7 @@ scissorsButton.addEventListener("click", () => {
 
 const newGameButton = document.querySelector(".newGame");
 newGameButton.addEventListener("click", () => {
-  newGame()
+  newGame();
 });
 
 const winnerBox = document.querySelector(".winnerBox");
