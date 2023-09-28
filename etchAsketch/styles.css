@@ -1,0 +1,20 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.box {
+  display: flex;
+  flex-wrap: wrap;
+  border: 1px solid black;
+  height: 400px;
+  width: 400px;
+}
+
+.cell {
+  display: flex;
+  height: 30px;
+  width: 30px;
+  border: 1px solid black;
+}
