@@ -1,20 +1,44 @@
-.main {
+
+.header {
   display: flex;
-  flex-direction: column;
   justify-content: center;
+  border: 1px solid black;
+  width: 100%;
 }
 
-.box {
+.main {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  border: 1px solid black;
+}
+
+.ctrlPanel {
+  display: flex;
+  flex-direction: column;
+  width:20%;
+  height: 500px;
+  border: 1px solid blue;
+}
+
+.grid {
   display: flex;
   flex-wrap: wrap;
-  border: 1px solid black;
-  height: 400px;
-  width: 400px;
+  flex-direction: column;
+  border: 2px solid black;
+  height: 500px;
+  width: 500px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
 }
 
 .cell {
   display: flex;
-  height: 30px;
-  width: 30px;
+  flex: 1;
   border: 1px solid black;
 }
