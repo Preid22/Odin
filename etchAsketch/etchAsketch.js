@@ -15,7 +15,7 @@ function genCells(num) {
       let cell = document.createElement("div");
       cell.className = "cell";
       row.appendChild(cell);
-      cell.addEventListener("mouseover", () => {
+      cell.addEventListener("click", () => {
         cell.style.backgroundColor = "black";
       });
     }
