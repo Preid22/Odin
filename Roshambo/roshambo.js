@@ -1,74 +1,107 @@
-function getComputerChoice() {
+// true: player won, false: CPU won
+
+function Game(playerChoice, cpuChoice) {
+  function playRoshambo(p, c) {
+    if (p === c) {
+      return "Draw!";
+    } else if (p === "Rock") {
+      if (c === "Paper") {
+        return false;
+      } else if (c === "Scissors") {
+        return true;
+      }
+    } else if (p === "Paper") {
+      if (c === "Rock") {
+        return true;
+      } else if (c === "Scissors") {
+        return false;
+      }
+    } else if (p === "Scissors") {
+      if (c === "Rock") {
+        return false;
+      } else if (c === "Paper") {
+        return true;
+      }
+    }
+  }
+
+  let result = playRoshambo(playerChoice, cpuChoice);
+
+  if (result === true) {
+    playerScore++;
+    displayPlayerScore.textContent = `Player: ${playerScore}`;
+    winnerBox.textContent = `You Win! Player chose ${playerChoice}, CPU chose ${cpuChoice}`;
+  } else if (result === false) {
+    computerScore++;
+    displayComputerScore.textContent = `CPU: ${computerScore}`;
+    winnerBox.textContent = `You Lose! Player chose ${playerChoice}, CPU chose ${cpuChoice}`;
+  } else if (result === "Draw!") {
+    winnerBox.textContent = "Draw!";
+  }
+  round += 1;
+  displayRound.textContent = `Round: ${round}`;
+
+  if (round === 10 && playerScore > computerScore) {
+    winnerBox.textContent = "Game Over! You Won!";
+    playerScore = 0;
+    computerScore = 0;
+    round = 1;
+  } else if (round === 10 && computerScore > playerScore) {
+    winnerBox.textContent = "Game Over! You Lost!";
+    playerScore = 0;
+    computerScore = 0;
+    round = 1;
+  } else if (round === 10 && computerScore === playerScore) {
+    winnerBox.textContent = "Game Over! Tie Game!";
+    playerScore = 0;
+    computerScore = 0;
+    round = 1;
+  }
+}
+
+let round = 1;
+let playerScore = 0;
+let computerScore = 0;
+
+let newGame = function startNewGame() {
+  round = 1;
+  playerScore = 0;
+  computerScore = 0;
+  displayPlayerScore.textContent = `Player: ${playerScore}`;
+  displayComputerScore.textContent = `Computer: ${computerScore}`;
+  displayRound.textContent = `Round: ${round}`;
+  winnerBox.textContent = "";
+};
+
+let computerChoice = function getComputerChoice() {
   const choices = ["Rock", "Paper", "Scissors"];
   const randomChoice = Math.floor(Math.random() * 3);
+  console.log(randomChoice);
   return choices[randomChoice];
-}
+};
 
-function playRoshambo(playerChoice, getComputerChoice) {
-  const computerChoice = getComputerChoice();
-  if (playerChoice === computerChoice) {
-    return "Draw!";
-  } else if (playerChoice === "Rock") {
-    if (computerChoice === "Paper") {
-      return "You Lose! Paper beats Rock";
-    } else if (computerChoice === "Scissors") {
-      return "You Win! Rock beats Scissors";
-    }
-  } else if (playerChoice === "Paper") {
-    if (computerChoice === "Rock") {
-      return "You Win! Paper beats Rock";
-    } else if (computerChoice === "Scissors") {
-      return "You Lose! Scissors beats Paper";
-    }
-  } else if (playerChoice === "Scissors") {
-    if (computerChoice === "Rock") {
-      return "You Lose! Rock beats Scissors";
-    } else if (computerChoice === "Paper") {
-      return "You Win! Scissors beats Paper";
-    }
-  }
-}
+const rockButton = document.querySelector(".rock");
+rockButton.addEventListener("click", () => {
+  Game("Rock", computerChoice());
+});
 
-function Game() {
-  let playerScore = 0;
-  let computerScore = 0;
-  let round = 0;
-  while (round < 5) {
-    let playerChoice = prompt("Make your choice!");
+const paperButton = document.querySelector(".paper");
+paperButton.addEventListener("click", () => {
+  Game("Paper", computerChoice());
+});
 
-    let result = playRoshambo(playerChoice, getComputerChoice);
-    if (
-      (result === "You Win! Rock beats Scissors") |
-      (result === "You Win! Paper beats Rock") |
-      (result === "You Win! Scissors beats Paper")
-    ) {
-      playerScore++;
-      round++;
-      console.log(
-        `${result}! Player: ${playerScore}, CPU: ${+computerScore}, Round: ${round}`
-      );
-    } else if (
-      (result === "You Lose! Paper beats Rock") |
-      (result === "You Lose! Scissors beats Paper") |
-      (result === "You Lose! Rock beats Scissors")
-    ) {
-      computerScore++;
-      round++;
-      console.log(
-        `${result}! Player: ${playerScore}, CPU: ${+computerScore}, Round: ${round}`
-      );
-    } else if (result === "Draw!") {
-      console.log("Draw!");
-    }
-  }
-  if (round === 5) {
-    let winner = Math.max(playerScore, computerScore);
-    if (winner === playerScore) {
-      return "You win! The score is " + playerScore + " to " + computerScore;
-    } else if (winner === computerScore) {
-      return "You lose! The score is " + computerScore + " to " + playerScore;
-    }
-  }
-}
+const scissorsButton = document.querySelector(".scissors");
+scissorsButton.addEventListener("click", () => {
+  Game("Scissors", computerChoice());
+});
 
-console.log(Game());
+const newGameButton = document.querySelector(".newGame");
+newGameButton.addEventListener("click", () => {
+  newGame();
+});
+
+const winnerBox = document.querySelector(".winnerBox");
+
+const displayPlayerScore = document.querySelector(".playerScore");
+const displayComputerScore = document.querySelector(".cpuScore");
+const displayRound = document.querySelector(".round");
