@@ -1,0 +1,75 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container h1 {
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 0.7rem;
+  font-family: Chalkduster;
+}
+
+.container p {
+  font-family: Chalkduster;
+  margin-top: 8%;
+}
+
+button {
+  background-color: white;
+  height: 40px;
+  width: 100px;
+  border: 3px solid black;
+  border-radius: 7px;
+  font-family: Chalkduster;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.buttonBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 50%;
+  margin-top: 8%;
+  margin-bottom: 5%;
+}
+
+.buttonBox > button:focus {
+  text-decoration: underline;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.newGame {
+  margin-bottom: 20px;
+  margin-top: 50px;
+}
+
+.newGame:active {
+  background-color: black;
+  color: white;
+}
+
+.winnerBox {
+  height: 50px;
+  font-family: Chalkduster;
+}
+
+.scoreBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 50px;
+  width: 120px;
+  font-family: Chalkduster;
+  margin-top: 40px;
+}
+
+.playerScore,
+.cpuScore {
+  margin-bottom: 10px;
+}

@@ -2,9 +2,27 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <link rel="stylesheet" href="styles.css" />
     <title>Roshambo</title>
   </head>
   <body>
-    <script src="roshambo.js"></script>
+    <div class="container">
+      <h1>roshambo</h1>
+      <p>Make your choice...</p>
+      <div class="buttonBox">
+        <button class="rock">Rock</button>
+        <button class="paper">Paper</button>
+        <button class="scissors">Scissors</button>
+      </div>
+      <div class="winnerBox"></div>
+      <div class="scoreBox">
+        <div class="playerScore">Player: 0</div>
+        <div class="cpuScore">Computer: 0</div>
+        <div class="round">Round: 1</div>
+      </div>
+      <button class="newGame">New Game</button>
+
+      <script src="roshambo.js"></script>
+    </div>
   </body>
 </html>
