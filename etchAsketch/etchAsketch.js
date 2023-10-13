@@ -1,9 +1,9 @@
 const grid = document.querySelector(".grid");
 const clearButton = document.querySelector(".clear");
 const slider = document.querySelector(".inputSlider");
-const sliderVal = document.querySelector(".inputSlider").value;
-
-function genCells(num) {
+//const sliderVal = document.querySelector(".inputSlider").value;
+const cell = document.querySelector(".cell")
+let genCells = function (num) {
   while (grid.firstChild) {
     grid.removeChild(grid.firstChild);
   }
@@ -20,7 +20,15 @@ function genCells(num) {
       });
     }
   }
+};
+
+let clearCells = function () {
+  genCells(slider.value)
 }
+
+clearButton.addEventListener("click", () => {
+  clearCells()
+})
 
 genCells(33);
 
