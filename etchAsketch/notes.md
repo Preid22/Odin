@@ -17,3 +17,10 @@ Need to figure out iteration thru grid, forEach?
 - This was the main issue, I was trying to iterate over the HTMLCollection which doesn't work. By using the spread syntax
 and converting the cells HTMLCollection to an array the forEach method works and I am able to conditionally check if a cell is
 filled and reset it to white
+
+Next thing I want to figure out is how to be able to 'draw' with the mouse rather than having it highlight only with a click or 
+mouseover, I want to combine the two. Looks like you cannot combine events, but you can use the listeners to track the state
+of things and then feed that info into another listener (https://stackoverflow.com/questions/47641309/combine-mouse-events-in-javascript)
+So I should be able to create a boolean variable that determines if mouse is down or not and if it is, then have the cells change color
+
+That worked, changed 'mouseover' to 'mousemove' so that the initial cell will fill when a click is made

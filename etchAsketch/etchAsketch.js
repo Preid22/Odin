@@ -1,12 +1,11 @@
-
 const grid = document.querySelector(".grid");
-const rows = grid.getElementsByClassName("row")
-const cells = grid.getElementsByClassName("cell")
+const rows = grid.getElementsByClassName("row");
+const cells = grid.getElementsByClassName("cell");
 const clearButton = document.querySelector(".clear");
 const slider = document.querySelector(".inputSlider");
 //const sliderVal = document.querySelector(".inputSlider").value;
 const Grid = document.querySelectorAll("div.grid");
-
+let isDown = false;
 
 let genCells = function (num) {
   while (grid.firstChild) {
@@ -20,6 +19,9 @@ let genCells = function (num) {
       let cell = document.createElement("div");
       cell.className = "cell";
       row.appendChild(cell);
+      cell.addEventListener("mousemove", () => {
+        if (isDown === true) cell.style.backgroundColor = "black";
+      });
       cell.addEventListener("click", () => {
         cell.style.backgroundColor = "black";
       });
@@ -31,21 +33,28 @@ let genCells = function (num) {
 //   genCells(slider.value);
 // };
 
-let clearCells = function(x){
-[...x].forEach((element) => {
-  if(element.style.backgroundColor === "black"){
-    element.style.backgroundColor = "white"
-  }
-})
-}
-
-clearButton.addEventListener("click", () => {
-clearCells(cells)
-});
+let clearCells = function (x) {
+  [...x].forEach((element) => {
+    if (element.style.backgroundColor === "black") {
+      element.style.backgroundColor = "white";
+    }
+  });
+};
 
 genCells(33);
 
 slider.addEventListener("click", () => genCells(slider.value));
+
+clearButton.addEventListener("click", () => {
+  clearCells(cells);
+});
+
+grid.addEventListener("mousedown", () => {
+  isDown = true;
+});
+grid.addEventListener("mouseup", () => {
+  isDown = false;
+});
 
 /*
 Try creating 16 row divs with sixteen cell divs [DONE]
