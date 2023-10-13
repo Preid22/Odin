@@ -1,32 +1,36 @@
+@font-face {
+  font-family: pixelated;
+  src: url(./Pixelify_Sans/PixelifySans-VariableFont_wght.ttf);
+}
+
 
 .header {
   display: flex;
-  justify-content: center;
-  border: 1px solid black;
+  flex-direction: column;
+  font-family: pixelated;
+  align-items: center;
   width: 100%;
 }
 
 .main {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
-  border: 1px solid black;
 }
 
 .ctrlPanel {
   display: flex;
   flex-direction: column;
   width:20%;
-  height: 500px;
-  border: 1px solid blue;
+  height: auto;
 }
 
 .grid {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
-  border: 2px solid black;
+  border: 75px solid rgb(234, 32, 32);
   height: 500px;
   width: 500px;
 }
@@ -40,5 +44,5 @@
 .cell {
   display: flex;
   flex: 1;
-
+  background-color: gainsboro;
 }

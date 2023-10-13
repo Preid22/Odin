@@ -36,7 +36,7 @@ let genCells = function (num) {
 let clearCells = function (x) {
   [...x].forEach((element) => {
     if (element.style.backgroundColor === "black") {
-      element.style.backgroundColor = "white";
+      element.style.backgroundColor = "gainsboro";
     }
   });
 };

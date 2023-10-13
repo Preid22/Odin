@@ -24,3 +24,10 @@ of things and then feed that info into another listener (https://stackoverflow.c
 So I should be able to create a boolean variable that determines if mouse is down or not and if it is, then have the cells change color
 
 That worked, changed 'mouseover' to 'mousemove' so that the initial cell will fill when a click is made
+
+WHAT TO WORK ON NEXT
+
+- Size input?
+- Color selection 
+- Grid overlay
+- Shading
