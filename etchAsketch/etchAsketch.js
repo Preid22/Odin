@@ -1,8 +1,13 @@
+
 const grid = document.querySelector(".grid");
+const rows = grid.getElementsByClassName("row")
+const cells = grid.getElementsByClassName("cell")
 const clearButton = document.querySelector(".clear");
 const slider = document.querySelector(".inputSlider");
 //const sliderVal = document.querySelector(".inputSlider").value;
-const cell = document.querySelector(".cell")
+const Grid = document.querySelectorAll("div.grid");
+
+
 let genCells = function (num) {
   while (grid.firstChild) {
     grid.removeChild(grid.firstChild);
@@ -22,13 +27,21 @@ let genCells = function (num) {
   }
 };
 
-let clearCells = function () {
-  genCells(slider.value)
+// let clearCells = function () {
+//   genCells(slider.value);
+// };
+
+let clearCells = function(x){
+[...x].forEach((element) => {
+  if(element.style.backgroundColor === "black"){
+    element.style.backgroundColor = "white"
+  }
+})
 }
 
 clearButton.addEventListener("click", () => {
-  clearCells()
-})
+clearCells(cells)
+});
 
 genCells(33);
 
