@@ -1,4 +1,4 @@
-export default function gameBoard() {
+let game = () => {
   const grid = [
     ["", "", ""],
     ["", "", ""],
@@ -18,4 +18,6 @@ export default function gameBoard() {
   };
 
   return { grid, newGrid, drop };
-}
+};
+
+export { game };
