@@ -30,9 +30,10 @@ const boardControl = (() => {
     }
   };
 
-  return { gridStateArray, resetGrid, drop };
+  return { gridStateArray, resetGrid, checkCell, drop };
 })();
 
+module.exports = boardControl;
 /*
 COMMENTS:
     - COMMENT1:  If gameBoard is written as a normal function, calling gameBoard.gridStateArray returns 'undefined', as the func
