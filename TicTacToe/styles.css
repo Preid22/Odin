@@ -1,0 +1,25 @@
+* {
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+.main {
+  justify-content: center;
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  border: 2px solid black;
+}
+
+.board {
+  height: 75vh;
+  width: 75vh;
+  border: 1px solid blue;
+}
+
+.cell {
+  height: 30px;
+  width: 30px;
+  border: 1px solid red;
+}
