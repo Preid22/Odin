@@ -3,12 +3,13 @@ let playerInfo = document.getElementsByClassName("players");
 
 const player = () => {
   let playerName = "";
-
   let playerToken = "";
-
   let playerScore = 0;
 
-  return { playerName, playerToken, playerScore };
+  const getScore = () => playerScore;
+  const addScore = () => playerScore++;
+
+  return { playerName, playerToken, addScore, getScore };
 };
 
 const boardControl = (() => {

@@ -3,10 +3,10 @@ const player = () => {
   let playerToken = "";
   let playerScore = 0;
 
-  /*const getScore = () => playerScore;*/
+  const getScore = () => playerScore;
   const addScore = () => playerScore++;
 
-  return { playerName, playerToken, addScore, playerScore };
+  return { playerName, playerToken, addScore, getScore };
 };
 
 let player1 = player();
