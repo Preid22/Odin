@@ -1,6 +1,16 @@
 let mainBoard = document.getElementsByClassName("board");
 let playerInfo = document.getElementsByClassName("players");
 
+const player = () => {
+  let playerName = "";
+
+  let playerToken = "";
+
+  let playerScore = 0;
+
+  return { playerName, playerToken, playerScore };
+};
+
 const boardControl = (() => {
   /*comment1*/
   let gridStateArray = [
@@ -9,8 +19,11 @@ const boardControl = (() => {
     ["", "", ""],
   ]; /*comment2*/
 
-  const isCellOccupied = (x, y) => {
-    return gridStateArray[x][y] === "X" || gridStateArray[x][y] === "Y";
+  const isCellOccupied = (gridX, gridY) => {
+    return (
+      gridStateArray[gridX][gridY] === "X" ||
+      gridStateArray[gridX][gridY] === "Y"
+    );
   };
 
   const resetGrid = () => {
@@ -21,18 +34,11 @@ const boardControl = (() => {
     }
   };
   /*comment3*/
-
-  const dropToken = (token, x, y) => {
-    if (gridStateArray[x][y] === "X" || gridStateArray[x][y] === "Y") {
-      console.log("Pick another space");
-    } else {
-      gridStateArray[x][y] = token;
-    }
-  };
+  /*Will need player token and turn info */
+  const dropToken = (gridX, gridY) => {};
 
   return { gridStateArray, resetGrid, isCellOccupied, dropToken };
 })();
-
 
 /*
 COMMENTS:
