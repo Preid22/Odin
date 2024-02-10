@@ -9,7 +9,7 @@ const boardControl = (() => {
     ["", "", ""],
   ]; /*comment2*/
 
-  const checkCell = (x, y) => {
+  const isCellOccupied = (x, y) => {
     return gridStateArray[x][y] === "X" || gridStateArray[x][y] === "Y";
   };
 
@@ -22,7 +22,7 @@ const boardControl = (() => {
   };
   /*comment3*/
 
-  const drop = (token, x, y) => {
+  const dropToken = (token, x, y) => {
     if (gridStateArray[x][y] === "X" || gridStateArray[x][y] === "Y") {
       console.log("Pick another space");
     } else {
@@ -30,10 +30,10 @@ const boardControl = (() => {
     }
   };
 
-  return { gridStateArray, resetGrid, checkCell, drop };
+  return { gridStateArray, resetGrid, isCellOccupied, dropToken };
 })();
 
-module.exports = boardControl;
+
 /*
 COMMENTS:
     - COMMENT1:  If gameBoard is written as a normal function, calling gameBoard.gridStateArray returns 'undefined', as the func
