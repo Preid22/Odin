@@ -3,14 +3,14 @@ const player = () => {
   let playerToken = "";
   let playerScore = 0;
 
-  const getScore = () => playerScore;
+  /*const getScore = () => playerScore;*/
   const addScore = () => playerScore++;
 
-  return { playerName, playerToken, addScore, getScore };
+  return { playerName, playerToken, addScore, playerScore };
 };
 
 let player1 = player();
 player1.playerName = "John";
 console.log(player1);
 player1.addScore();
-console.log(player1.getScore())
+console.log(player1.playerScore)
