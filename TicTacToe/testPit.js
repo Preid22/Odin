@@ -1,11 +1,16 @@
-let gridStateArray = [
-  ["X", "", ""],
-  ["", "", ""],
-  ["", "", ""],
-];
+const player = () => {
+  let playerName = "";
+  let playerToken = "";
+  let playerScore = 0;
 
-const isCellOccupied = (x, y) => {
-  return gridStateArray[x][y] === "X" || gridStateArray[x][y] === "Y";
+  const getScore = () => playerScore;
+  const addScore = () => playerScore++;
+
+  return { playerName, playerToken, addScore, getScore };
 };
 
-console.log(isCellOccupied(0, 0));
+let player1 = player();
+player1.playerName = "John";
+console.log(player1);
+player1.addScore();
+console.log(player1.getScore())
