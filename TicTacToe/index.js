@@ -12,7 +12,7 @@ const player = () => {
   const setToken = (newToken) => {
     playerToken = newToken;
   };
-  const tokenIs = () => playerToken;
+  const tokenID = () => playerToken;
 
   const setName = (newName) => {
     playerName = newName;
@@ -20,7 +20,7 @@ const player = () => {
   const nameIs = () => playerName;
 
 
-  return { setName, nameIs, setToken, tokenIs , addScore, scoreIs };
+  return { setName, nameIs, setToken, tokenID , addScore, scoreIs };
 };
 
 const boardControl = (() => {
@@ -47,7 +47,9 @@ const boardControl = (() => {
   };
   /*comment3*/
   /*Will need player token and turn info */
-  const dropToken = (gridX, gridY) => {};
+  const dropToken = (gridX, gridY) => {
+    isCellOccupied() ? gridStateArray[gridX][gridY] = /**PLAYER VAL*/.
+  };
 
   return { gridStateArray, resetGrid, isCellOccupied, dropToken };
 })();
