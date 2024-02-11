@@ -1,2 +1,0 @@
-const boardControl = require('./index');
-
