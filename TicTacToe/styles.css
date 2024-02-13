@@ -13,6 +13,13 @@
   border: 2px solid black;
 }
 
+.playerInput {
+  display: block;
+  height: 40vh;
+  width: 300px;
+  border: 1px solid black;
+}
+
 .board {
   height: 70vh;
   max-height: 350px;
@@ -44,7 +51,6 @@
   flex-direction: column;
   justify-content: flex-start;
 }
-
 
 /*const checkForWin = () => {
     let board = gameBoard.gridStateArray;

@@ -1,5 +1,5 @@
 let mainBoard = document.getElementsByClassName("board");
-let playerInfo = document.getElementsByClassName("players");
+let playerInfo = document.getElementById("playerInput");
 
 const player = () => {
   let playerName = "";
@@ -16,11 +16,10 @@ const player = () => {
 
   const setName = (newName) => {
     playerName = newName;
-  }
+  };
   const nameIs = () => playerName;
 
-
-  return { setName, nameIs, setToken, tokenID , addScore, scoreIs };
+  return { setName, nameIs, setToken, tokenID, addScore, scoreIs };
 };
 
 const boardControl = (() => {
@@ -46,13 +45,23 @@ const boardControl = (() => {
     }
   };
   /*comment3*/
+
   /*Will need player token and turn info */
   const dropToken = (gridX, gridY) => {
-    isCellOccupied() ? gridStateArray[gridX][gridY] = /**PLAYER VAL*/.
+    isCellOccupied()
+      ? (gridStateArray[gridX][gridY] = /**PLAYER VAL*/ player.tokenID())
+      : console.error("Pick an unoccupied cell");
   };
 
-  return { gridStateArray, resetGrid, isCellOccupied, dropToken };
+  return { gridStateArray, resetGrid, dropToken };
 })();
+
+playerInfo.addEventListener("submit", function (e) {
+  e.preventDefault();
+  player.playerName = e.target.elements.playerName.value;
+  
+
+});
 
 /*
 COMMENTS:
