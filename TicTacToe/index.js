@@ -58,9 +58,8 @@ const boardControl = (() => {
 
 playerInfo.addEventListener("submit", function (e) {
   e.preventDefault();
-  player.playerName = e.target.elements.playerName.value;
-  
-
+  player.playerName = e.target.elements.playerNameInput.value;
+  player.playerToken = e.target.elements.player;
 });
 
 /*
