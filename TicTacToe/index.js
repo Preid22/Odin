@@ -1,4 +1,4 @@
-let mainBoard = document.getElementsByClassName("board");
+let mainBoard = document.getElementById("game");
 let playerInfo = document.getElementById("playerInput");
 
 const player = () => {
@@ -60,8 +60,9 @@ playerInfo.addEventListener("submit", function (e) {
   e.preventDefault();
   let playerOne = player();
   playerOne.setName(e.target.elements.playerNameInput.value);
-  playerOne.setToken(e.target.elements.selectToken.value)
-  console.log(playerOne.tokenID())
+  playerOne.setToken(e.target.elements.selectToken.value);
+  mainBoard.style.cursor = 'pointer';
+  console.log(mainBoard)
 });
 
 /*

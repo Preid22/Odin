@@ -13,8 +13,10 @@
   border: 2px solid black;
 }
 
-.playerInput {
+#playerInput {
   display: block;
+  position: relative;
+  z-index: 1;
   height: 40vh;
   width: 300px;
   border: 1px solid black;

@@ -27,3 +27,5 @@ The issue was that I was declaring the score property, and a function property t
      Here, that function is getScore. The value of playerScore is within the lexical scope of getScore, so getScore can be used to access the correct updated value, NOT just the copy that playerScore lets us access.
 
      This give an extra layer of control, as the score value can now only be manipulated and accessed via approved means.
+
+NOTE: CANNOT ACCESS HTML ELEMENT STYLE PROPERTIES USING THE CLASS NAME TO ACCESS, USE ID INSTEAD
