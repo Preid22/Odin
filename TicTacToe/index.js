@@ -13,13 +13,19 @@ const player = () => {
     playerToken = newToken;
   };
   const tokenID = () => playerToken;
-
+  const CPUtoken = (playerToken) => {
+    if (playerToken === "X") {
+      return "O";
+    } else {
+      return "X";
+    }
+  };
   const setName = (newName) => {
     playerName = newName;
   };
   const nameIs = () => playerName;
 
-  return { setName, nameIs, setToken, tokenID, addScore, scoreIs };
+  return { setName, nameIs, setToken, tokenID, CPUtoken, addScore, scoreIs };
 };
 
 const boardControl = (() => {
@@ -58,13 +64,15 @@ const boardControl = (() => {
 
 playerInfo.addEventListener("submit", function (e) {
   e.preventDefault();
+
   let playerOne = player();
   let playerOneName = document.getElementById("playerOneName");
-  
+  let playerTwoName = document.getElementById("playerTwoName");
+
   playerOne.setName(e.target.elements.playerNameInput.value);
-  playerOneName.textContent = `P1: ${playerOne.nameIs()}`;
 
   playerOne.setToken(e.target.elements.selectToken.value);
+  playerOneName.textContent = `P1: ${playerOne.tokenID()}`;
 
   mainBoard.style.cursor = "pointer";
 });
