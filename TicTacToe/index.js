@@ -59,10 +59,14 @@ const boardControl = (() => {
 playerInfo.addEventListener("submit", function (e) {
   e.preventDefault();
   let playerOne = player();
+  let playerOneName = document.getElementById("playerOneName");
+  
   playerOne.setName(e.target.elements.playerNameInput.value);
+  playerOneName.textContent = `P1: ${playerOne.nameIs()}`;
+
   playerOne.setToken(e.target.elements.selectToken.value);
-  mainBoard.style.cursor = 'pointer';
-  console.log(mainBoard)
+
+  mainBoard.style.cursor = "pointer";
 });
 
 /*
