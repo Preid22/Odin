@@ -29,3 +29,14 @@ The issue was that I was declaring the score property, and a function property t
      This give an extra layer of control, as the score value can now only be manipulated and accessed via approved means.
 
 NOTE: CANNOT ACCESS HTML ELEMENT STYLE PROPERTIES USING THE CLASS NAME TO ACCESS, USE ID INSTEAD
+
+2/14/24
+Gained some further understanding on the differences between methods for accessing the DOM/HTML from the JS. - getElementByID: since HTML IDs must be unique, ID can only ever return one (the first) element, can me modified
+
+        - getElementsByClassName: returns and HTMLCollection, which is a LIVE UPDATED array-like object. Because it is live it's good for accessing dynamic content, but care must be taken because the order of elements can change. Remember - since it is like an array, elements must be accessed using [bracket] notation.
+
+        -  getElementsByName: returns a LIVE NODE LIST with specified name attribute. Also an array-like object.
+
+        -  querySelector: returns the first element matching the specified CSS selector, returns a single element
+
+        -  querySelectorAll: static node list of all elements that match the specified CSS selector

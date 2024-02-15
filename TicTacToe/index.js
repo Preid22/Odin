@@ -1,6 +1,6 @@
 let mainBoard = document.getElementById("game");
-let playerInfo = document.getElementById("playerInput");
-
+let playerInfo = document.getElementsByClassName("playerInput");
+let cells = document.get
 const player = () => {
   let playerName = "";
   let playerToken = "";
@@ -13,7 +13,7 @@ const player = () => {
     playerToken = newToken;
   };
   const tokenID = () => playerToken;
-  const CPUtoken = (playerToken) => {
+  const CPUtoken = () => {
     if (playerToken === "X") {
       return "O";
     } else {
@@ -28,7 +28,7 @@ const player = () => {
   return { setName, nameIs, setToken, tokenID, CPUtoken, addScore, scoreIs };
 };
 
-const boardControl = (() => {
+const boardControl = () => {
   /*comment1*/
   let gridStateArray = [
     ["", "", ""],
@@ -60,9 +60,11 @@ const boardControl = (() => {
   };
 
   return { gridStateArray, resetGrid, dropToken };
-})();
+};
 
-playerInfo.addEventListener("submit", function (e) {
+let gamePlay = boardControl();
+
+playerInfo[0].addEventListener("submit", function (e) {
   e.preventDefault();
 
   let playerOne = player();
@@ -73,10 +75,15 @@ playerInfo.addEventListener("submit", function (e) {
 
   playerOne.setToken(e.target.elements.selectToken.value);
   playerOneName.textContent = `P1: ${playerOne.tokenID()}`;
+  playerTwoName.textContent = `P2: ${playerOne.CPUtoken()}`;
+
 
   mainBoard.style.cursor = "pointer";
 });
 
+mainBoard.addEventListener("click", () => {
+
+})
 /*
 COMMENTS:
     - COMMENT1:  If gameBoard is written as a normal function, calling gameBoard.gridStateArray returns 'undefined', as the func
