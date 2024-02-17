@@ -46,3 +46,5 @@ Gained some further understanding on the differences between methods for accessi
         Another hurdle cleared having to do with accessing elements via class name - It doesn't work to have, for example, an event listener set to listen for 'a class'. You have to create a variable first, using getElementsByClassName, which as we know creates an array like list so again we need to remember to iterate through that list in order to access specific elements.
 
         Looking at the list returned in the dev console of Chrome, it looks like we should also be able to make use of the ID to get to a specific cell.
+
+   ??? QUESTION: Seems like there are a couple of ways around it, but I'm thinking through how and where to make the cells 'active' (accessible and interactive). 

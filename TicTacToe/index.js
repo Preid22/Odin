@@ -56,7 +56,7 @@ const boardControl = () => {
   /*Will need player token and turn info */
   const dropToken = (gridX, gridY) => {
     isCellOccupied()
-      ? (gridStateArray[gridX][gridY] = /**PLAYER VAL*/ player.tokenID())
+      ? (gridStateArray[gridX][gridY] = this.tokenID())
       : console.error("Pick an unoccupied cell");
   };
 
@@ -78,6 +78,15 @@ playerInfo[0].addEventListener("submit", function (e) {
   playerOneName.textContent = `P1: ${playerOne.tokenID()}`;
   playerTwoName.textContent = `P2: ${playerOne.CPUtoken()}`;
 
+  (function assignCellsListener() {
+    for (let i = 0; i < cells.length; i++) {
+      cells[i].addEventListener("click", () => {
+        gamePlay.dropToken.playerOne;
+        console.log(cells);
+      }); //event func
+    } //outer loop iterating over 'cells'
+  })();
+
   mainBoard.style.cursor = "pointer";
 });
 
@@ -85,13 +94,6 @@ mainBoard.addEventListener("click", () => {
   console.log(cells);
 });
 
-function activateCells() {
-  for (let i = 0; i < cells.length; i++) {
-    cells[i].addEventListener("click", () => {
-      gamePlay.dropToken.playerOne;
-    });
-  }
-}
 /*
 COMMENTS:
     - COMMENT1:  If gameBoard is written as a normal function, calling gameBoard.gridStateArray returns 'undefined', as the func
