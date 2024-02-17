@@ -1,6 +1,7 @@
 let mainBoard = document.getElementById("game");
 let playerInfo = document.getElementsByClassName("playerInput");
-let cells = document.get
+let cells = document.getElementsByClassName('cell');
+
 const player = () => {
   let playerName = "";
   let playerToken = "";
@@ -82,7 +83,7 @@ playerInfo[0].addEventListener("submit", function (e) {
 });
 
 mainBoard.addEventListener("click", () => {
-
+console.log(cells)
 })
 /*
 COMMENTS:
