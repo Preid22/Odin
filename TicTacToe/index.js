@@ -56,7 +56,7 @@ const boardControl = () => {
   /*Will need player token and turn info */
   const dropToken = (gridX, gridY) => {
     isCellOccupied()
-      ? (gridStateArray[gridX][gridY] = this.tokenID())
+      ? (gridStateArray[gridX][gridY] = playerOne.tokenID())
       : console.error("Pick an unoccupied cell");
   };
 
@@ -64,6 +64,7 @@ const boardControl = () => {
 };
 
 let gamePlay = boardControl();
+let playerOne = player();
 
 playerInfo[0].addEventListener("submit", function (e) {
   e.preventDefault();
@@ -81,8 +82,9 @@ playerInfo[0].addEventListener("submit", function (e) {
   (function assignCellsListener() {
     for (let i = 0; i < cells.length; i++) {
       cells[i].addEventListener("click", () => {
+        
         gamePlay.dropToken.playerOne;
-        console.log(cells);
+        console.log();
       }); //event func
     } //outer loop iterating over 'cells'
   })();

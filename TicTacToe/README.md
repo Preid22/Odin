@@ -47,4 +47,6 @@ Gained some further understanding on the differences between methods for accessi
 
         Looking at the list returned in the dev console of Chrome, it looks like we should also be able to make use of the ID to get to a specific cell.
 
-   ??? QUESTION: Seems like there are a couple of ways around it, but I'm thinking through how and where to make the cells 'active' (accessible and interactive). 
+??? QUESTION: Seems like there are a couple of ways around it, but I'm thinking through how and where to make the cells 'active' (accessible and interactive).
+
+FEELING STUMPED - Time to move on and chew on this... The issue that I'm trying to unravel is how to link the individual cells to my JS functions and make them individually accessible. Haven't yet been able to really step through it so that should be the next step.
