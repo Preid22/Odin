@@ -1,6 +1,6 @@
 let mainBoard = document.getElementById("game");
 let playerInfo = document.getElementsByClassName("playerInput");
-let cells = document.getElementsByClassName('cell');
+let cells = document.getElementsByClassName("cell");
 
 const player = () => {
   let playerName = "";
@@ -78,13 +78,20 @@ playerInfo[0].addEventListener("submit", function (e) {
   playerOneName.textContent = `P1: ${playerOne.tokenID()}`;
   playerTwoName.textContent = `P2: ${playerOne.CPUtoken()}`;
 
-
   mainBoard.style.cursor = "pointer";
 });
 
 mainBoard.addEventListener("click", () => {
-console.log(cells)
-})
+  console.log(cells);
+});
+
+function activateCells() {
+  for (let i = 0; i < cells.length; i++) {
+    cells[i].addEventListener("click", () => {
+      gamePlay.dropToken.playerOne;
+    });
+  }
+}
 /*
 COMMENTS:
     - COMMENT1:  If gameBoard is written as a normal function, calling gameBoard.gridStateArray returns 'undefined', as the func
