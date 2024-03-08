@@ -25,3 +25,8 @@ HOWEVER on line 13 we should be RETURNING response.json(), as written it just pe
     .then((data) => {
         console.log(data)
     })
+
+**_ BIG DUMB MISTAKE _**
+Running around in circles trying to figure out why my weatherData object is just returning a function, is because YOU HAVE TO CALL THE FUNCTION ('()') FOR IT TO WORK!!
+
+Going to try to keep this fairly simple and move on. I've got the data pulled in, now I need to figure out which data to use and how to render it.
