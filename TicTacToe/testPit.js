@@ -1,26 +1,2 @@
-const player = () => {
-  let playerName = "";
-  let playerToken = "";
-  let playerScore = 0;
-
-  const scoreIs = () => playerScore;
-  const addScore = () => playerScore++;
-
-  const setToken = (newToken) => {
-    playerToken = newToken;
-  };
-  const tokenID = () => playerToken;
-
-  const setName = (newName) => {
-    playerName = newName;
-  };
-  const nameIs = () => playerName;
-
-  return { setName, nameIs, setToken, tokenID, addScore, scoreIs };
-};
-
-let x = player();
-
-x.setName("John");
-
-console.log(x.nameIs());
+"https://api.open-meteo.com/v1/forecast?latitude=36.0754&longitude=-79.0997&current=temperature_2m,apparent_temperature,is_day,precipitation,rain,showers,snowfall,weather_code,wind_speed_10m,wind_direction_10m,wind_gusts_10m&hourly=temperature_2m,relative_humidity_2m,apparent_temperature,precipitation_probability,precipitation,rain,showers,snowfall,snow_depth,weather_code,cloud_cover,visibility,temperature_80m,temperature_120m,temperature_180m&temperature_unit=fahrenheit&wind_speed_unit=mph"
+//weather API

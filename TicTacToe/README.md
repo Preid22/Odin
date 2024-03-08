@@ -50,3 +50,10 @@ Gained some further understanding on the differences between methods for accessi
 ??? QUESTION: Seems like there are a couple of ways around it, but I'm thinking through how and where to make the cells 'active' (accessible and interactive).
 
 FEELING STUMPED - Time to move on and chew on this... The issue that I'm trying to unravel is how to link the individual cells to my JS functions and make them individually accessible. Haven't yet been able to really step through it so that should be the next step.
+
+2/21/24
+
+Breaking out into the async/promises material. Ran into an issue where I was trying to access a form value, but I was declaring the variable before and outside of the listener function, so when I tried to access that variable there was nothing there to access. I think by declaring the variable within the event func that should give the right access.
+
+** IMPORTANT **
+Simply moving the variable didn't have the desired effect. This is because I didn't use event.preventDefault() in the event function. This is necessary because THE DEFAULT BEHAVIOUR OF A FORM IS TO RELOAD THE PAGE WHEN SUBMITTED, in this case we don't want the entire page to reload we just want the GIF to be updated, so we need to PREVENT the DEFAULT behaviour. This also requires the use of the 'event' argument. Also needed to remove the 'type = submit' attribute from the HTML tag.
